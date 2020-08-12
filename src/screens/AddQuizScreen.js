@@ -1,8 +1,10 @@
 // screens/AddUserScreen.js
 
 import React, { Component } from 'react';
-import { Button, StyleSheet, Text, TextInput, ScrollView, ActivityIndicator, View } from 'react-native';
+import { Button, Image, StyleSheet, Text, TextInput, ScrollView, ActivityIndicator, View } from 'react-native';
 import firebase from '../database/firebaseDb';
+
+import AgroButton from "../components/AgroButton";
 
 class AddQuizScreen extends Component {
   constructor() {
@@ -22,12 +24,12 @@ class AddQuizScreen extends Component {
   }
 
   addQuiz(email) {
-    if(this.state.name === ''){
-     alert('Fill at least your name!')
+    if (this.state.name === '') {
+      alert('Fill at least your name!')
     } else {
       this.setState({
         isLoading: true,
-      });      
+      });
       this.dbRef.doc(email).collection("quiz").doc(this.state.quiz.replace(/\s/g, "-")).set({
         user: email,
         quiz: this.state.quiz,
@@ -36,65 +38,79 @@ class AddQuizScreen extends Component {
         this.setState({
           isLoading: false,
         });
-        this.props.navigation.navigate('AddQuestionsScreen', { 
+        this.props.navigation.navigate('AddQuestionsScreen', {
           email: email,
           quiz: this.state.quiz.replace(/\s/g, "-"),
         })
       })
-      .catch((err) => {
-        console.error("Error found: ", err);
-        this.setState({
-          isLoading: false,
+        .catch((err) => {
+          console.error("Error found: ", err);
+          this.setState({
+            isLoading: false,
+          });
         });
-      });
     }
   }
 
   render() {
     const { email } = this.props.route.params;
-    if(this.state.isLoading){
-      return(
+    if (this.state.isLoading) {
+      return (
         <View style={styles.preloader}>
-          <ActivityIndicator size="large" color="#9E9E9E"/>
+          <ActivityIndicator size="large" color="#9E9E9E" />
         </View>
       )
     }
     return (
-      <ScrollView style={styles.container}>
+      <View style={styles.container}>
+        <View style={{alignItems: "center"}}>
+        <Image
+            style={styles.logo}
+            source={require("../../assets/logo.png")}
+          />
+        </View>
         <View style={styles.inputGroup}>
-
-        <Text>{email} </Text>
           <TextInput
-              multiline={true}
-              numberOfLines={4}
-              placeholder={'Título do Questionário'}
-              value={this.state.quiz}
-              onChangeText={(val) => this.inputValueUpdate(val, 'quiz')}
+            multiline={true}
+            numberOfLines={4}
+            placeholder={"Digite o Título da Questionário"}
+            placeholderTextColor="#666666"
+            value={this.state.quiz}
+            onChangeText={(val) => this.inputValueUpdate(val, 'quiz')}
           />
         </View>
-        <View style={styles.button}>
-          <Button
-            title='Criar Questionário'
-            onPress={() => this.addQuiz(email)} 
-            color="#19AC52"
-          />
+        <View style={{marginBottom: 35}}>
+        <AgroButton title="Criar Questionário" onPress={() => this.props.navigation.navigate("AddQuizScreen", { email: email })} />
+
         </View>
-      </ScrollView>
+      </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: "#FFF",
     flex: 1,
-    padding: 35
+    padding: 35,
+    justifyContent: "center",
   },
   inputGroup: {
-    flex: 1,
-    padding: 0,
-    marginBottom: 15,
-    borderBottomWidth: 1,
-    borderBottomColor: '#cccccc',
+    height: 40,
+    padding: 7,
+    paddingTop: 5,
+    marginTop: 35,
+    marginBottom: 35,
+    borderWidth: 1,
+    borderColor: "#29007a",
+    borderRadius: 8,
+    fontSize: 16,
+  },
+  buttonText: {
+    marginHorizontal: 7,
+    fontSize: 16,
+    fontWeight: "bold",
+    color: "#FFFFFF"
   },
   preloader: {
     left: 0,

@@ -72,9 +72,8 @@ class HomeScreen extends Component {
 
     render() {
         const { email } = this.props.route.params;
-        Moment.locale('pt-br');         // :|
+        Moment.locale('pt-br');
         var quizImage = "https://i.pinimg.com/originals/38/4b/64/384b647cf8c97a0b8b42bb25f169747c.png"; 
-        // andre2020@agroquiz.com
         if (this.state.isLoading) {
             return (
                 <View style={styles.preloader}>
@@ -97,7 +96,7 @@ class HomeScreen extends Component {
                                                 source={require("../../assets/default-avatar.jpg")}
                                             />
                                             <Text style={{ color: "#FFFFFF", fontSize: 16, fontWeight: "bold", marginLeft: 8 }}>Bem-vindo,{"\n"}
-                                                <Text style={{ color: "#d5b5ff", fontSize: 20, fontWeight: "bold" }}> {item.name}</Text>
+                                                <Text style={{ color: "#d5b5ff", fontSize: 20, fontWeight: "bold" }}>{item.name}</Text>
                                             </Text>
                                         </View>
 

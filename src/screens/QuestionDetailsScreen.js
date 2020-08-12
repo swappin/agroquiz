@@ -6,6 +6,10 @@ import { ListItem } from 'react-native-elements'
 import firebase from '../database/firebaseDb';
 import GetLocation from 'react-native-get-location';
 import MapView from 'react-native-maps'
+import { LinearGradient } from "expo-linear-gradient";
+import Moment from 'moment';
+
+
 
 const instructions = Platform.select({
     ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -131,8 +135,9 @@ class QuestionDetailsScreen extends Component {
 
 
     render() {
-        const { email, quiz, question } = this.props.route.params;
+        const { email, quiz, question, questionNumber } = this.props.route.params;
         const { location, loading } = this.state;
+        Moment.locale('pt-br');
         if (this.state.isLoading) {
             return (
                 <View style={styles.preloader}>
@@ -145,92 +150,128 @@ class QuestionDetailsScreen extends Component {
 
                 <ScrollView style={styles.container}>
 
-                    <MapView
-                        style={{ flex: 1 }}
-                        region={{ latitude: 42.882004, longitude: 74.582748, latitudeDelta: 0.0922, longitudeDelta: 0.0421 }}
-                        showsUserLocation={true}
-                    />
-                    <View style={styles.inputGroup}>
-                        <Text>Bem-vindo, {email} {quiz} {question}</Text>
-                        <TouchableOpacity onPress={() => this.props.navigation.navigate('AddQuizScreen', { email: email })}>
-                            <Text style={{ color: 'blue' }}>
-                                Criar Questionário
-              </Text>
-                        </TouchableOpacity>
+                    <View style={styles.questionsList}>
+                        <View>
+                            <LinearGradient
+                                colors={["#33078a", "#B53471"]}
+                                style={styles.questionNumberBox}
+                                start={[0, 1]}
+                                end={[1, 0]}>
+                                <Text style={{ color: '#FFFFFF', fontWeight: "bold" }}>{questionNumber}</Text>
+                            </LinearGradient>
+                        </View>
+                        <View style={{ marginLeft: 10, flex: 1 }}>
+                            <Text style={{ color: '#555555', fontWeight: 'bold', fontSize: 16 }}>
+                                {question}
+                            </Text>
+                        </View>
                     </View>
-                    {
-                        this.state.descriptionArr.map((item, i) => {
-                            return (
-                                <ListItem
-                                    key={i}
-                                    chevron
-                                    bottomDivider
-                                    title={item.description}
-                                    subtitle={"Xo dsahuasdhusad"}
-                                    onPress={() => {
-                                        this.props.navigation.navigate('QuizScreen', {
-                                            email: email,
-                                            quiz: item.quiz.replace(/\s/g, "-"),
-                                        })
-                                    }} />
+                    <View style={{ flexDirection: "column", borderBottomColor: "#DDD", borderBottomWidth: 1 }}>
+                        <View style={{ marginTop: 25 }}>
+                            <Text style={{ color: "#333333", fontSize: 16, fontWeight: "bold" }}>Resposta: </Text>
+                        </View>
 
-                            );
-                        })
-                    }
+                        <View style={styles.answerBox}>
+                            {
+                                this.state.descriptionArr.map((item, i) => {
+                                    return (
+                                        <View>
+                                            <Text>
+                                                {item.description}
+                                            </Text>
+                                        </View>
 
-                    {
-                        this.state.descriptionArr.map((item, i) => {
-                            return (
-                                <MapView
-                                    style={styles.map}
-                                    region={{ latitude: item.geopoint.latitude, longitude: item.geopoint.longitude, latitudeDelta: 0.0922, longitudeDelta: 0.0421 }}
-                                    showsUserLocation={true}
-                                />
+                                    );
+                                })
+                            }
 
-                            );
-                        })
-                    }
+                            {
+                                this.state.descriptionArr.map((item, i) => {
+                                    return (
+
+                                        <View style={styles.mapBox}>
+                                            <View>
+                                                <Text>
+                                                    <Text style={{ color: "#333333", fontSize: 14, fontWeight: "bold" }}>Local da Resposta
+                                    <Text style={{ color: "#999999", fontSize: 12 }}>({item.geopoint.latitude}, {item.geopoint.longitude})</Text>
+                            : </Text>
+                                                </Text>
+                                            </View>
+                                            <MapView
+                                                style={styles.map}
+                                                region={{ latitude: item.geopoint.latitude, longitude: item.geopoint.longitude, latitudeDelta: 0.0922, longitudeDelta: 0.0421 }}
+                                                showsUserLocation={true}
+                                            />
+                                        </View>
+
+                                    );
+                                })
+                            }
+
+                            {
+                                this.state.descriptionArr.map((item, i) => {
+                                    return (
+
+                                        <View style={{flexDirection: "row", justifyContent: "flex-end", marginTop: 20}}>
+                                            <Text style={{color: "#333333"}}>
+                                                {"Respondida em " + Moment(item.registerDate).format('LL')}
+                                            </Text>
+                                        </View>
+
+                                    );
+                                })
+                            }
+                        </View>
+                    </View>
                 </ScrollView>
             );
         } else {
             return (
                 <ScrollView style={styles.container}>
-                    <View style={styles.inputGroup}>
-                        <Text>Bem-vindo, {email} {quiz} {question}</Text>
-                        <TouchableOpacity onPress={() => this.props.navigation.navigate('AddQuizScreen', { email: email })}>
-                            <Text style={{ color: 'blue' }}>
-                                Criar Questionário
-          </Text>
-                        </TouchableOpacity>
-
-                        <View style={styles.inputGroup}>
-
-                            <TextInput
-                                multiline={true}
-                                numberOfLines={4}
-                                placeholder={'Descrição da Questão'}
-                                value={this.state.description}
-                                onChangeText={(val) => this.inputValueUpdate(val, 'description')}
-                            />
+                    <View>
+                        <View style={styles.questionsList}>
+                            <View>
+                                <LinearGradient
+                                    colors={["#33078a", "#B53471"]}
+                                    style={styles.questionNumberBox}
+                                    start={[0, 1]}
+                                    end={[1, 0]}>
+                                    <Text style={{ color: '#FFFFFF', fontWeight: "bold" }}>{questionNumber}</Text>
+                                </LinearGradient>
+                            </View>
+                            <View style={{ marginLeft: 10, flex: 1 }}>
+                                <Text style={{ color: '#555555', fontWeight: 'bold', fontSize: 16 }}>
+                                    {question}
+                                </Text>
+                            </View>
                         </View>
 
+                        <View style={{ flexDirection: "column", borderBottomColor: "#DDD", borderBottomWidth: 1 }}>
+                            <View style={{ marginTop: 25 }}>
+                                <Text style={{ color: "#333333", fontSize: 16, fontWeight: "bold" }}>Responder Questão</Text>
+                            </View>
+                            <View style={{ flexDirection: "row", alignItems: "center" }}>
+                                <View style={{ flex: 1 }}>
+                                    <TextInput
+                                        multiline={true}
+                                        numberOfLines={4}
+                                        style={styles.inputGroup}
+                                        placeholder={"Digite sua resposta..."}
+                                        placeholderTextColor="#666666"
+                                        value={this.state.description}
+                                        onChangeText={(val) => this.inputValueUpdate(val, 'description')}
+                                    />
+                                </View>
+
+                                <View style={styles.addButton}>
+                                    <TouchableOpacity
+                                        onPress={this._requestLocation}>
+                                        <Text style={styles.buttonText}>Responder</Text>
+                                    </TouchableOpacity>
+                                </View>
+                            </View>
+                        </View>
                     </View>
-                    <View style={styles.button}>
-                        <Button
-                            disabled={loading}
-                            title="Adicionar"
-                            onPress={this._requestLocation}
-                        />
-                    </View>
-                    {loading ? (
-                        <ActivityIndicator />
-                    ) : null}
-                    {location ? (
-                        <Text style={styles.location}>
-                            {location.latitude}
-                            {location.longitude}
-                        </Text>
-                    ) : null}
                 </ScrollView>
             );
         }
@@ -240,11 +281,80 @@ class QuestionDetailsScreen extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        paddingBottom: 22
+        padding: 35,
+    },
+    mapBox: {
+        marginTop: 25,
     },
     map: {
+        marginTop: 5,
         height: 200,
-        width: 200,
+        flex: 1,
+        borderRadius: 20,
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+
+        elevation: 5,
+    },
+    inputGroup: {
+        height: 40,
+        padding: 7,
+        paddingTop: 9,
+        marginTop: 5,
+        marginBottom: 15,
+        borderWidth: 1,
+        borderColor: "#29007a",
+        borderTopLeftRadius: 8,
+        borderBottomLeftRadius: 8,
+        fontSize: 16,
+    },
+    addButton: {
+        backgroundColor: "#29007a",
+        height: 40,
+        paddingTop: 7,
+        marginTop: -10,
+        borderTopRightRadius: 8,
+        borderBottomRightRadius: 8,
+    },
+    buttonText: {
+        marginHorizontal: 7,
+        fontSize: 16,
+        fontWeight: "bold",
+        color: "#FFFFFF"
+    },
+    questionsList: {
+        flex: 1,
+        flexDirection: "row",
+        alignItems: "center",
+        height: 50,
+        paddingVertical: 10,
+        borderBottomWidth: 1,
+        borderBottomColor: "#DDDDDD",
+    },
+    questionNumberBox: {
+        borderRadius: 7,
+        height: 30, width: 30,
+        justifyContent: "center",
+        alignItems: "center",
+    },
+    answerBox: {
+        padding: 20,
+        backgroundColor: "#FFFFFF",
+        borderRadius: 20,
+        marginVertical: 10,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+
+        elevation: 5,
     },
     preloader: {
         left: 0,
