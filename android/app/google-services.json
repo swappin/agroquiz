@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "627975228086",
+    "firebase_url": "https://agroquiz-c1579.firebaseio.com",
+    "project_id": "agroquiz-c1579",
+    "storage_bucket": "agroquiz-c1579.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:627975228086:android:365559a1ea35df0505b417",
+        "android_client_info": {
+          "package_name": "br.com.agroquiz"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "627975228086-el77gprcp9k1uuiootaj0rrvkv46s9v0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDHC0ziyKW9w-nuleUBvum39DsPfoxGauY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "627975228086-el77gprcp9k1uuiootaj0rrvkv46s9v0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "627975228086-ear0iq3vonf7bu26co7ts03henp8aus3.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "br.com.agroquiz"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
