@@ -69,7 +69,6 @@ class AddQuestionsScreen extends Component {
     querySnapshot.forEach((res) => {
       const { question, registerDate } = res.data();
       userArr.push({
-        key: res.id,
         res,
         question,
         registerDate,
@@ -96,12 +95,12 @@ class AddQuestionsScreen extends Component {
       <ScrollView style={styles.container}>
         <View>
 
-          <Text style={{ color: "#29007a", fontSize: 16, fontWeight: "bold" }}>Título do Questionário:{"\n"}
-            <Text style={{ color: "#333333", fontSize: 20, fontWeight: "bold" }}>{quiz}</Text>
+          <Text style={{ color: "#29007a", fontSize:12, fontWeight: "bold" }}>Título do Questionário:{"\n"}
+            <Text style={{ color: "#333333", fontSize: 16, fontWeight: "bold" }}>{quiz}</Text>
           </Text>
           <View style={{ flexDirection: "column", borderBottomColor: "#DDD", borderBottomWidth: 1 }}>
             <View style={{marginTop: 25}}>
-              <Text style={{ color: "#333333", fontSize: 16, fontWeight: "bold" }}>Adicionar Nova Questão</Text>
+              <Text style={{ color: "#333333", fontSize: 12, fontWeight: "bold" }}>Adicionar Nova Questão</Text>
             </View>
             <View style={{ flexDirection: "row", alignItems: "center" }}>
               <View style={{ flex: 1 }}>
@@ -148,13 +147,13 @@ class AddQuestionsScreen extends Component {
                   </LinearGradient>
                 </View>
                 <View style={{ marginLeft: 10, flex: 1 }}>
-                  <Text style={{ color: '#555555', fontWeight: 'bold', fontSize: 16 }}>
-                    {item.question}
+                  <Text style={{ color: '#555555', fontWeight: 'bold', fontSize: 12 }}>
+                    {item.question}?
                   </Text>
                 </View>
                 <View style={{ flexDirection: "row", justifyContent: "flex-end" }}>
                   <Text style={{ color: '#29007a', fontSize: 16 }}>
-                    >
+                    {">"}
                   </Text>
                 </View>
               </TouchableOpacity>
@@ -181,19 +180,19 @@ const styles = StyleSheet.create({
     borderColor: "#29007a",
     borderTopLeftRadius: 8,
     borderBottomLeftRadius: 8,
-    fontSize: 16,
+    fontSize: 12,
   },
   addButton: {
     backgroundColor: "#29007a",
     height: 40,
-    paddingTop: 7,
+    paddingTop: 9,
     marginTop: -10,
     borderTopRightRadius: 8,
     borderBottomRightRadius: 8,
   },
   buttonText: {
     marginHorizontal: 7,
-    fontSize: 16,
+    fontSize: 12,
     fontWeight: "bold",
     color: "#FFFFFF"
   },

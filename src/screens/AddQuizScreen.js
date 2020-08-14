@@ -38,7 +38,7 @@ class AddQuizScreen extends Component {
         this.setState({
           isLoading: false,
         });
-        this.props.navigation.navigate('AddQuestionsScreen', {
+        this.props.navigation.navigate('QuizScreen', {
           email: email,
           quiz: this.state.quiz.replace(/\s/g, "-"),
         })
@@ -63,16 +63,15 @@ class AddQuizScreen extends Component {
     }
     return (
       <View style={styles.container}>
-        <View style={{alignItems: "center"}}>
+        <View style={{alignItems: "center", marginBottom: 50}}>
         <Image
             style={styles.logo}
-            source={require("../../assets/logo.png")}
+            source={require("../../assets/logo_dark.png")}
           />
         </View>
         <View style={styles.inputGroup}>
           <TextInput
-            multiline={true}
-            numberOfLines={4}
+            multiline={false}
             placeholder={"Digite o Título da Questionário"}
             placeholderTextColor="#666666"
             value={this.state.quiz}
@@ -80,7 +79,7 @@ class AddQuizScreen extends Component {
           />
         </View>
         <View style={{marginBottom: 35}}>
-        <AgroButton title="Criar Questionário" onPress={() => this.props.navigation.navigate("AddQuizScreen", { email: email })} />
+        <AgroButton title="Criar Questionário" onPress={() => this.addQuiz(email)} />
 
         </View>
       </View>
@@ -99,7 +98,6 @@ const styles = StyleSheet.create({
     height: 40,
     padding: 7,
     paddingTop: 5,
-    marginTop: 35,
     marginBottom: 35,
     borderWidth: 1,
     borderColor: "#29007a",
@@ -111,6 +109,10 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "bold",
     color: "#FFFFFF"
+  },
+  logo: {
+    width: 140,
+    height: 85, 
   },
   preloader: {
     left: 0,

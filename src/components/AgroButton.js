@@ -2,6 +2,8 @@ import React, { useState } from "react";
 
 import {
     StyleSheet,
+    View,
+    Image,
     Text,
     TouchableOpacity,
 } from "react-native";
@@ -27,7 +29,13 @@ const AgroButton = ({ onPress, title }) => {
                 start={[0, 1]}
                 end={[1, 0]}
             >
-            <Text style={styles.buttonText}>{title}</Text>
+                <View style={{flex: 1, flexDirection: "row", alignItems: "center", justifyContent: "center"}}>
+                    <Image
+                        style={styles.icon}
+                        source={require("../../assets/icons/create.png")}
+                    />
+                    <Text style={styles.buttonText}>{title}</Text>
+                </View>
             </LinearGradient>
         </TouchableOpacity>
     );
@@ -36,20 +44,23 @@ const AgroButton = ({ onPress, title }) => {
 
 
 const styles = StyleSheet.create({
-    buttonContainer: {  
+    buttonContainer: {
         alignSelf: 'stretch',
         height: 75,
         elevation: 8,
         backgroundColor: "#009688",
-        borderRadius:37.5,
-        padding: 15,
-        alignItems: "center",
-        justifyContent: "center"
+        borderRadius: 37.5,
+        paddingVertical: 15,
     },
     buttonText: {
         fontSize: 16,
         fontWeight: "bold",
-        color: "#FFFFFF"
+        color: "#FFFFFF",
+        marginLeft: 10
+    },
+    icon: {
+        width: 22,
+        height: 22,
     },
 })
 

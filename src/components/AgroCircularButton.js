@@ -30,7 +30,7 @@ const AgroCircularButton = ({ onPress }) => {
             >
             <Image
               style={styles.icon}
-              source={require('../../assets/go-arrow.png')}
+              source={require('../../assets/icons/go-arrow.png')}
             />
             </LinearGradient>
         </TouchableOpacity>

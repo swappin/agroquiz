@@ -74,7 +74,7 @@ class QuestionDetailsScreen extends Component {
                     location,
                     loading: false,
                 });
-                this.addQuestion(location.latitude, location.latitude);
+                this.addQuestion(location.latitude, location.longitude);
             })
             .catch(ex => {
                 const { code, message } = ex;
