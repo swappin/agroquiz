@@ -51,7 +51,7 @@ expo install expo-linear-gradient
 O aplicativo possui duas versões de Login e Senha, conforme imagens abaixo. 
 
 
-![alt text](https://raw.githubusercontent.com/swappin/agroquiz/master/files/agroquiz_arte_white.jpg?raw=true) 
+![alt text](https://raw.githubusercontent.com/swappin/agroquiz/master/files/models.jpg?raw=true) 
 
 Uma foi instalada para o Android e outra para o iOS. Para alterar as plataformas, basta alterar o operador ternário das seguintes linhas no arquivo App.js:
 
