@@ -63,8 +63,8 @@ class AddQuizScreen extends Component {
     }
     return (
       <View style={styles.container}>
-        <View style={{alignItems: "center", marginBottom: 50}}>
-        <Image
+        <View style={{ alignItems: "center", marginBottom: 50 }}>
+          <Image
             style={styles.logo}
             source={require("../../assets/logo_dark.png")}
           />
@@ -78,9 +78,8 @@ class AddQuizScreen extends Component {
             onChangeText={(val) => this.inputValueUpdate(val, 'quiz')}
           />
         </View>
-        <View style={{marginBottom: 35}}>
-        <AgroButton title="Criar Questionário" onPress={() => this.addQuiz(email)} />
-
+        <View style={{ marginBottom: 35 }}>
+          <AgroButton title="Criar Questionário" onPress={() => this.addQuiz(email)} />
         </View>
       </View>
     );
@@ -112,7 +111,7 @@ const styles = StyleSheet.create({
   },
   logo: {
     width: 140,
-    height: 85, 
+    height: 85,
   },
   preloader: {
     left: 0,

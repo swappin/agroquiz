@@ -28,10 +28,10 @@ const AgroCircularButton = ({ onPress }) => {
                 start={[0, 1]}
                 end={[1, 0]}
             >
-            <Image
-              style={styles.icon}
-              source={require('../../assets/icons/go-arrow.png')}
-            />
+                <Image
+                    style={styles.icon}
+                    source={require('../../assets/icons/go-arrow.png')}
+                />
             </LinearGradient>
         </TouchableOpacity>
     );
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
         height: 75,
         elevation: 8,
         backgroundColor: "#009688",
-        borderRadius:37.5,
+        borderRadius: 37.5,
         padding: 15,
         alignItems: "center",
         justifyContent: "center"

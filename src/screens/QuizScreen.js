@@ -95,11 +95,11 @@ class AddQuestionsScreen extends Component {
       <ScrollView style={styles.container}>
         <View>
 
-          <Text style={{ color: "#29007a", fontSize:12, fontWeight: "bold" }}>Título do Questionário:{"\n"}
+          <Text style={{ color: "#29007a", fontSize: 12, fontWeight: "bold" }}>Título do Questionário:{"\n"}
             <Text style={{ color: "#333333", fontSize: 16, fontWeight: "bold" }}>{quiz}</Text>
           </Text>
           <View style={{ flexDirection: "column", borderBottomColor: "#DDD", borderBottomWidth: 1 }}>
-            <View style={{marginTop: 25}}>
+            <View style={{ marginTop: 25 }}>
               <Text style={{ color: "#333333", fontSize: 12, fontWeight: "bold" }}>Adicionar Nova Questão</Text>
             </View>
             <View style={{ flexDirection: "row", alignItems: "center" }}>

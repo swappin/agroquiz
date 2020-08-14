@@ -29,7 +29,7 @@ const AgroButton = ({ onPress, title }) => {
                 start={[0, 1]}
                 end={[1, 0]}
             >
-                <View style={{flex: 1, flexDirection: "row", alignItems: "center", justifyContent: "center"}}>
+                <View style={{ flex: 1, flexDirection: "row", alignItems: "center", justifyContent: "center" }}>
                     <Image
                         style={styles.icon}
                         source={require("../../assets/icons/create.png")}

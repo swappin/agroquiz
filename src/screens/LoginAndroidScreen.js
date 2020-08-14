@@ -3,7 +3,6 @@ import { Image, ImageBackground, StyleSheet, TouchableOpacity, Text, TextInput, 
 import firebase from "../database/firebaseDb";
 import AgroCircularButton from "../components/AgroCircularButton";
 
-
 class LoginScreen extends Component {
   constructor() {
     super();
@@ -65,6 +64,7 @@ class LoginScreen extends Component {
                     source={require("../../assets/icons/email.png")}
                   />
                   <TextInput
+                    style={{ paddingLeft: 10, flex: 1 }}
                     placeholder={"Email"}
                     placeholderTextColor="#666666"
                     value={this.state.email}
@@ -77,6 +77,7 @@ class LoginScreen extends Component {
                     source={require("../../assets/icons/password.png")}
                   />
                   <TextInput
+                    style={{ paddingLeft: 10, flex: 1 }}
                     placeholder={"Digite sua Senha"}
                     placeholderTextColor="#666666"
                     value={this.state.password}
@@ -135,19 +136,18 @@ const styles = StyleSheet.create({
     height: 15,
     opacity: 0.65,
     marginTop: 5,
-    marginRight: 10,
-},
+  },
   body: {
     marginTop: 100,
   },
   inputGroup: {
-      flexDirection: "row",
-      height: 30,
-      padding: 0,
-      marginBottom: 15,
-      borderBottomWidth: 1,
-      borderBottomColor: "#CCCCCC",
-      fontSize: 12,
+    flexDirection: "row",
+    height: 30,
+    padding: 0,
+    marginBottom: 15,
+    borderBottomWidth: 1,
+    borderBottomColor: "#CCCCCC",
+    fontSize: 12,
   },
   footer: {
     flexDirection: "row",

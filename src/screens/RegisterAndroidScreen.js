@@ -1,5 +1,3 @@
-// screens/AddUserScreen.js
-
 import React, { Component } from 'react';
 import { ImageBackground, StyleSheet, Image, TextInput, TouchableOpacity, Text, ActivityIndicator, View } from 'react-native';
 import firebase from '../database/firebaseDb';
@@ -86,6 +84,7 @@ class RegisterScreen extends Component {
                                         source={require("../../assets/icons/profile.png")}
                                     />
                                     <TextInput
+                                        style={{ paddingLeft: 10 }}
                                         placeholder={"Nome Completo"}
                                         placeholderTextColor="#666666"
                                         value={this.state.name}
@@ -100,6 +99,7 @@ class RegisterScreen extends Component {
                                         source={require("../../assets/icons/email.png")}
                                     />
                                     <TextInput
+                                        style={{ paddingLeft: 10 }}
                                         placeholder={"Email"}
                                         placeholderTextColor="#666666"
                                         value={this.state.email}
@@ -112,6 +112,7 @@ class RegisterScreen extends Component {
                                         source={require("../../assets/icons/password.png")}
                                     />
                                     <TextInput
+                                        style={{ paddingLeft: 10 }}
                                         placeholder={"Digite sua Senha"}
                                         placeholderTextColor="#666666"
                                         value={this.state.password}
@@ -125,6 +126,7 @@ class RegisterScreen extends Component {
                                         source={require("../../assets/icons/password.png")}
                                     />
                                     <TextInput
+                                        style={{ paddingLeft: 10 }}
                                         placeholder={"Confirme sua Senha"}
                                         placeholderTextColor="#666666"
                                         value={this.state.confirmPassword}
@@ -157,7 +159,6 @@ class RegisterScreen extends Component {
                     </View>
                 </ImageBackground>
 
-
             </View>
         );
     }
@@ -181,7 +182,6 @@ const styles = StyleSheet.create({
         height: 15,
         opacity: 0.65,
         marginTop: 5,
-        marginRight: 10,
     },
     body: {
         flex: 1,
@@ -193,7 +193,7 @@ const styles = StyleSheet.create({
         padding: 0,
         marginBottom: 15,
         borderBottomWidth: 1,
-      borderBottomColor: "#CCCCCC",
+        borderBottomColor: "#CCCCCC",
         fontSize: 12,
     },
     footer: {

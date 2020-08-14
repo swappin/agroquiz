@@ -1,16 +1,12 @@
-// screens/UserScreen.js
 
 import React, { Component } from "react";
 import { StyleSheet, Image, Text, TouchableOpacity, ScrollView, ActivityIndicator, View } from "react-native";
 import { ListItem } from "react-native-elements";
 import Moment from 'moment';
 
-
 import firebase from "../database/firebaseDb";
 import { LinearGradient } from "expo-linear-gradient";
 import AgroButton from "../components/AgroButton";
-
-
 
 class HomeScreen extends Component {
 
@@ -74,7 +70,6 @@ class HomeScreen extends Component {
     render() {
         const { email } = this.props.route.params;
         Moment.locale('pt-br');
-        var quizImage = "";
         if (this.state.isLoading) {
             return (
                 <View style={styles.preloader}>
@@ -224,7 +219,7 @@ class HomeScreen extends Component {
                                         source={require("../../assets/empty.png")}
                                     />
                                     <Text style={styles.emptyTitle}>
-                                        <Text style={{color: "#333"}}>Ooops... {"\n"}</Text>
+                                        <Text style={{ color: "#333" }}>Ooops... {"\n"}</Text>
                                         Nenhum questionário foi criado ainda.</Text>
 
                                 </View>

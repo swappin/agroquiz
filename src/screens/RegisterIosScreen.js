@@ -84,6 +84,7 @@ class RegisterScreen extends Component {
                                         source={require("../../assets/icons/profile.png")}
                                     />
                                     <TextInput
+                                        style={{ paddingLeft: 10, flex: 1 }}
                                         placeholder={"Nome Completo"}
                                         placeholderTextColor="#666666"
                                         value={this.state.name}
@@ -98,6 +99,7 @@ class RegisterScreen extends Component {
                                         source={require("../../assets/icons/email.png")}
                                     />
                                     <TextInput
+                                        style={{ paddingLeft: 10, flex: 1 }}
                                         placeholder={"Email"}
                                         placeholderTextColor="#666666"
                                         value={this.state.email}
@@ -110,6 +112,7 @@ class RegisterScreen extends Component {
                                         source={require("../../assets/icons/password.png")}
                                     />
                                     <TextInput
+                                        style={{ paddingLeft: 10, flex: 1 }}
                                         placeholder={"Digite sua Senha"}
                                         placeholderTextColor="#666666"
                                         value={this.state.password}
@@ -123,6 +126,7 @@ class RegisterScreen extends Component {
                                         source={require("../../assets/icons/password.png")}
                                     />
                                     <TextInput
+                                        style={{ paddingLeft: 10, flex: 1 }}
                                         placeholder={"Confirme sua Senha"}
                                         placeholderTextColor="#666666"
                                         value={this.state.confirmPassword}
@@ -178,7 +182,6 @@ const styles = StyleSheet.create({
         height: 15,
         opacity: 0.65,
         marginTop: 5,
-        marginRight: 10,
     },
     body: {
         flex: 1,

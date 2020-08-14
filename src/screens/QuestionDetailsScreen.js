@@ -1,5 +1,3 @@
-// screens/UserScreen.js
-
 import React, { Component } from 'react';
 import { StyleSheet, Text, TextInput, Button, TouchableOpacity, ScrollView, ActivityIndicator, View } from 'react-native';
 import { ListItem } from 'react-native-elements'
@@ -9,14 +7,6 @@ import MapView from 'react-native-maps'
 import { LinearGradient } from "expo-linear-gradient";
 import Moment from 'moment';
 
-
-
-const instructions = Platform.select({
-    ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-    android:
-        'Double tap R on your keyboard to reload,\n' +
-        'Shake or press menu button for dev menu',
-});
 class QuestionDetailsScreen extends Component {
 
     constructor() {
@@ -133,10 +123,8 @@ class QuestionDetailsScreen extends Component {
         }
     }
 
-
     render() {
-        const { email, quiz, question, questionNumber } = this.props.route.params;
-        const { location, loading } = this.state;
+        const { question, questionNumber } = this.props.route.params;
         Moment.locale('pt-br');
         if (this.state.isLoading) {
             return (
