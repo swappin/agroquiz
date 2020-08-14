@@ -1,60 +1,52 @@
-// App.js
-
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { Image } from "react-native";
-
-
-import LoginScreen from './src/screens/LoginScreen';
-import RegisterScreen from './src/screens/RegisterScreen';
+import { Platform, Image, LogBox } from "react-native";
+import LoginAndroidScreen from './src/screens/LoginAndroidScreen'; //Comentar caso escolha a versão 2;
+import LoginIosScreen from './src/screens/LoginIosScreen'; //Remover comentário para versão 2;
+import RegisterAndroidScreen from './src/screens/RegisterAndroidScreen';
+import RegisterIosScreen from './src/screens/RegisterIosScreen';
 import HomeScreen from './src/screens/HomeScreen';
 import QuizScreen from './src/screens/QuizScreen';
 import QuestionDetailsScreen from './src/screens/QuestionDetailsScreen';
 import AddQuizScreen from './src/screens/AddQuizScreen';
-import AddQuestionsScreen from './src/screens/AddQuestionsScreen';
-
 
 const Stack = createStackNavigator();
 
 function MyStack() {
+  console.disableYellowBox = true;
+
   return (
     <Stack.Navigator
+
       screenOptions={{
+        headerBackTitle: null,
+        headerBackTitleVisible: false,
         headerStyle: {
           backgroundColor: '#5f27cd',
         },
+        headerTitleAlign: 'center',
         headerTintColor: '#fff',
         headerTitleStyle: {
+          fontSize: 14,
           fontWeight: 'bold',
         },
       }}
     >
       <Stack.Screen
         name="LoginScreen"
-        component={LoginScreen}
+        component={Platform.OS === 'ios' ? LoginIosScreen : LoginAndroidScreen}
         options={{
-          title: null,
-
-          headerStyle: {
-            backgroundColor: 'transparent',
-            shadowColor: 'transparent',
-            shadowRadius: 0,
-            shadowOffset: {
-              height: 0,
-            }
-          },
-          headerTintColor: '#fff',
-          headerTitleStyle: {
-            fontWeight: 'bold',
-          },
+          headerShown: false,
 
         }}
       />
       <Stack.Screen
         name="RegisterScreen"
-        component={RegisterScreen}
-        options={{ title: 'Register' }}
+        component={Platform.OS === 'ios' ? RegisterIosScreen : RegisterAndroidScreen}
+        options={{
+          headerShown: false,
+        }}
       />
       <Stack.Screen
         name="HomeScreen"
@@ -62,8 +54,7 @@ function MyStack() {
         options={{
           title: (
             <Image
-              style={{width: 100}}
-              source={require("./assets/logo.png")}
+              source={require("./assets/logo_2.png")}
             />
           ),
           headerLeft: null,
@@ -72,24 +63,18 @@ function MyStack() {
       <Stack.Screen
         name="QuizScreen"
         component={QuizScreen}
-        options={{ title: ' Meu Questionário' }}
+        options={{ title: 'Meu Questionário' }}
       />
       <Stack.Screen
         name="QuestionDetailsScreen"
         component={QuestionDetailsScreen}
-        options={{ title: 'Questão' }}
+        options={{ title: 'Questão', }}
       />
       <Stack.Screen
         name="AddQuizScreen"
         component={AddQuizScreen}
-        options={{ title: 'Criar Questionário' }}
-      />
-      <Stack.Screen
-        name="AddQuestionsScreen"
-        component={AddQuestionsScreen}
         options={{
-          title: 'Questionário dddd',
-          headerLeft: null,
+          title: 'Criar Questionário',
         }}
       />
     </Stack.Navigator>
