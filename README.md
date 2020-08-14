@@ -48,7 +48,7 @@ expo install expo-linear-gradient
 
 ## Informações Extras
 
-O aplicativo possui duas versões de Login e Senha, conforme imagens abaixo. 
+O aplicativo possui duas versões de Login e Registro, conforme imagens abaixo. 
 
 
 ![alt text](https://raw.githubusercontent.com/swappin/agroquiz/master/files/models.jpg?raw=true) 
