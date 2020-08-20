@@ -1,6 +1,6 @@
 # AgroQuiz
 
-Um aplicativo criado em React Native e Firebase para a empresa AgroTools para concorrer à vaga de Desenvolvedor Mobile. 
+Um aplicativo criado em uma semana com React Native e Firebase desenvolvido em um desafio de criação de produtos da forma mais ágil com uma linguagem nunca antes utilizada. Obs.: As habilidades em React Native foram desenvolvidas em uma semana apenas. 
 
 ![alt text](https://raw.githubusercontent.com/swappin/agroquiz/master/files/agroquiz_arte_white.jpg?raw=true)
 
