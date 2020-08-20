@@ -1,6 +1,6 @@
 # AgroQuiz
 
-Um aplicativo criado em uma semana com React Native e Firebase desenvolvido em um desafio de criação de produtos da forma mais ágil com uma linguagem nunca antes utilizada. Obs.: As habilidades em React Native foram desenvolvidas em uma semana apenas. 
+Um aplicativo criado em 4 dias com React Native e Firebase desenvolvido em um desafio de criação de produtos da forma mais ágil com uma linguagem nunca antes utilizada. Obs.: As habilidades em React Native foram desenvolvidas uma semana apenas e isso inclui a criação do logo, da marca, etc. 
 
 ![alt text](https://raw.githubusercontent.com/swappin/agroquiz/master/files/agroquiz_arte_white.jpg?raw=true)
 
